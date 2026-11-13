@@ -14,7 +14,8 @@ aria2_sessions_path="/config/aria2/sessions"
 aria2_downloads_path="/config/aria2/downloads"
 aria2_log_filepath="${aria2_logs_path}/aria2.log"
 aria2_config_filepath="${aria2_config_path}/aria2.conf"
-aria2_rpc_secret_filepath="/config/aria2/rpc-secret"
+aria2_rpc_secret_path="/config/aria2/secrets"
+aria2_rpc_secret_filepath="${aria2_rpc_secret_path}/rpc-secret"
 aria2_cookies_filepath="${aria2_cookies_path}/cookies.txt"
 
 # nginx
@@ -57,7 +58,8 @@ function resolve_rpc_secret() {
 }
 
 # create paths
-mkdir -p "${aria2_logs_path}" "${aria2_config_path}" "${nginx_config_path}" "${aria2_downloads_path}" "${aria2_cookies_path}" "${aria2_sessions_path}"
+mkdir -p "${aria2_logs_path}" "${aria2_config_path}" "${nginx_config_path}" "${aria2_downloads_path}" "${aria2_cookies_path}" "${aria2_sessions_path}" "${aria2_rpc_secret_path}"
+chmod 700 "${aria2_rpc_secret_path}"
 
 # default nginx
 if [[ ! -f "${nginx_config_filepath}" ]]; then

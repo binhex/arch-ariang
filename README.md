@@ -49,7 +49,7 @@ correct values.
 AriaNg has no login of its own, access to aria2 is controlled by the JSON-RPC
 secret token. If `ARIA2_RPC_SECRET` is not set and no secret file exists then a
 32 character secret is generated on start and stored in
-`/config/aria2/rpc-secret`, the same secret is reused on every restart.
+`/config/aria2/secrets/rpc-secret`, the same secret is reused on every restart.
 
 To connect, open AriaNg, go to `Settings -> RPC`, set the host to your unRAID
 host IP, the port to `6800` and paste the secret into `Secret token`.
@@ -79,8 +79,8 @@ docker run -d \
 ## Notes
 
 `ARIA2_RPC_SECRET` sets the aria2 JSON-RPC secret token, it takes precedence
-over a secret stored in `/config/aria2/rpc-secret` and any `rpc-secret` set in
-`/config/aria2/configs/aria2.conf`.
+over a secret stored in `/config/aria2/secrets/rpc-secret` and any
+`rpc-secret` set in `/config/aria2/configs/aria2.conf`.
 
 `/data` is available as a download location, aria2 writes to
 `/config/aria2/downloads` by default, change the `dir` option in
