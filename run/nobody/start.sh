@@ -84,8 +84,6 @@ echo "[info] Starting aria2c..."
 # command line options override the values in aria2.conf
 aria2_parameters=(
 	"--conf-path=${aria2_config_filepath}"
-	"--dir=${aria2_downloads_path}"
-	"--log-level=notice"
 	"--log=${aria2_log_filepath}"
 )
 
