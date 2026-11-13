@@ -82,6 +82,7 @@ mv /tmp/index.html "${install_path}/"
 install_paths=$(echo "${install_paths}" | tr ',' ' ')
 
 # set permissions for container during build - Do NOT double quote variable for install_paths otherwise this will wrap space separated paths as a single string
+# shellcheck disable=SC2086
 chmod -R 775 ${install_paths}
 
 # In install.sh heredoc, replace the chown section:
@@ -107,6 +108,7 @@ source utils.sh
 # Define environment variables to process
 # Format: "VAR_NAME:DEFAULT_VALUE:REQUIRED:MASK"
 env_vars=(
+	"ARIA2_RPC_SECRET::false:true"
 	"ENABLE_STARTUP_SCRIPTS:no:false:false"
 	"STARTUP_SCRIPTS_MODE:wait:false:false"
 )
